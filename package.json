@@ -1,7 +1,8 @@
 {
   "name": "seneca-mesh-ng",
   "version": "0.11.0",
-  "description": "Mesh your Seneca.js microservices together - no more service discovery!",
+  "description":
+    "Mesh your Seneca.js microservices together - no more service discovery!",
   "main": "mesh.js",
   "license": "MIT",
   "author": "Richard Rodger (http://richardrodger.com)",
@@ -23,16 +24,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/senecajs/seneca-mesh"
+    "url": "https://github.com/wzrdtales/seneca-mesh-ng"
   },
-  "keywords": [
-    "seneca",
-    "plugin",
-    "transport",
-    "load",
-    "balance",
-    "client"
-  ],
+  "keywords": ["seneca", "plugin", "transport", "load", "balance", "client"],
   "engines": {
     "node": ">=4.0.0"
   },
@@ -60,9 +54,5 @@
     "seneca-consul-registry": "0.1.0",
     "seneca-repl": "1.0.x"
   },
-  "files": [
-    "README.md",
-    "LICENSE",
-    "mesh.js"
-  ]
+  "files": ["README.md", "LICENSE", "mesh.js"]
 }
