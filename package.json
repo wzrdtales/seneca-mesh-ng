@@ -44,7 +44,7 @@
     "node-discover": "0.6.0",
     "optioner": "0.8.0",
     "rif": "0.3.0",
-    "sneeze": "0.8.0"
+    "sneeze-ng": "^0.8.0"
   },
   "devDependencies": {
     "chairo": "2.2.1",

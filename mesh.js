@@ -6,7 +6,7 @@
 'use strict'
 
 var _ = require('lodash')
-var Sneeze = require('sneeze')
+var Sneeze = require('sneeze-ng')
 var Nid = require('nid')
 var Rif = require('rif')
 var Discover = require('node-discover')
