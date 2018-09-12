@@ -53,7 +53,7 @@
     "coveralls": "^3.0.2",
     "docco": "0.7.x",
     "hapi": "^17.5.4",
-    "lab": "^16.1.0",
+    "lab": "^14.3.4",
     "prettier": "^1.10.2",
     "seneca": "^3.7.0",
     "seneca-balance-client": "^0.7.0",
