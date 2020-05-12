@@ -93,7 +93,7 @@ var optioner = Optioner({
 function mesh(options) {
   var seneca = this;
 
-  seneca.depends("balance-client");
+  seneca.depends("balance-client-ng");
 
   optioner(options, function(err, options) {
     if (err) throw err;
@@ -132,7 +132,7 @@ function mesh(options) {
     ];
 
     var balance_client_opts = options.balance_client || {};
-    seneca.use("balance-client$mesh~" + mid, balance_client_opts);
+    seneca.use("balance-client-ng$mesh~" + mid, balance_client_opts);
 
     seneca.add("init:mesh", init);
 
