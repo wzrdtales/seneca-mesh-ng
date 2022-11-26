@@ -152,6 +152,7 @@ function mesh(options) {
 
         var sneeze_opts = options.sneeze || {};
 
+        sneeze_opts.preferCurrentMeta = true;
         sneeze_opts.bases = bases;
         sneeze_opts.isbase = isbase;
         sneeze_opts.port = options.port || void 0;
@@ -166,8 +167,10 @@ function mesh(options) {
           void 0 !== sneeze_opts.tag
             ? sneeze_opts.tag
             : void 0 !== tag
-              ? null === tag ? null : "seneca~" + tag
-              : "seneca~mesh";
+            ? null === tag
+              ? null
+              : "seneca~" + tag
+            : "seneca~mesh";
 
         seneca.add(
           "role:transport,cmd:listen",
@@ -205,6 +208,7 @@ function mesh(options) {
           var client_instance = instance.root.delegate();
           var config = seneca.util.clean(raw_config || {}, { proto: false });
           var alive_bases = 0;
+          const baseName = {};
 
           if (!config.pin && !config.pins) {
             config.pin = "null:true";
@@ -265,8 +269,13 @@ function mesh(options) {
 
           function add_client(meta) {
             if (closed) return;
-            if (meta.config.pin[0] === "base:true,role:mesh") ++alive_bases;
-
+            if (
+              meta.config.pin[0] === "base:true,role:mesh" &&
+              !baseName[meta.instance]
+            ) {
+              ++alive_bases;
+              baseName[meta.instance] = true;
+            }
             // ignore myself
             if (client_instance.id === meta.instance) {
               return;
@@ -323,6 +332,9 @@ function mesh(options) {
             if (meta.config.pin[0] === "base:true,role:mesh") {
               base_left = true;
               --alive_bases;
+              if (baseName[meta.instance]) {
+                delete baseName[meta.instance];
+              }
             }
 
             // ignore myself
