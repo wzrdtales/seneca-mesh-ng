@@ -390,23 +390,23 @@ function mesh(options) {
                   // retry on error
                   if (isbase) {
                     sneeze.once("retry", function() {
-                      sneeze.leave();
+                      // sneeze.leave();
                       setTimeout(rejoin, 1111);
                     });
                   } else {
                     sneeze.once("error", function() {
-                      sneeze.leave();
+                      // sneeze.leave();
                       setTimeout(rejoin, 1111);
                     });
                   }
-                  sneeze.join(instanceMeta);
+                  sneeze._swim.join(instanceMeta);
                 });
               };
 
-              Object.keys(members).forEach(function(member) {
-                remove_client(members[member].meta, true);
-              });
-              sneeze.leave();
+              // Object.keys(members).forEach(function(member) {
+              //   remove_client(members[member].meta, true);
+              // });
+              // sneeze.leave();
               setTimeout(rejoin, 1111);
             }
           }
