@@ -374,7 +374,7 @@ function mesh(options) {
               var members = sneeze.members();
               var rejoin = function rejoin() {
                 intern.find_bases(seneca, options, rif, function(found_bases) {
-                  if (found_bases.length === 0) setTimeout(rejoin, 1111);
+                  if (found_bases.length === 0) return setTimeout(rejoin, 1111);
                   bases = found_bases;
 
                   seneca.log.debug({
@@ -399,7 +399,7 @@ function mesh(options) {
                       setTimeout(rejoin, 1111);
                     });
                   }
-                  sneeze._swim.join(instanceMeta);
+                  sneeze._swim.join(bases);
                 });
               };
 
